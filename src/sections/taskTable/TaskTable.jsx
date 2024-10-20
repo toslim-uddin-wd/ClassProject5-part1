@@ -3,6 +3,8 @@ import { Button} from "flowbite-react";
 import { Table } from "flowbite-react";
 import TaskItem from "./TaskItem";
 import TaskTableHeader from "./TaskTableHeader";
+import { useState } from "react";
+import { ModalPopup } from "../../component/ModalPopup";
 
 function NoData () {
     return (
@@ -13,14 +15,17 @@ function NoData () {
 }
 
 function TaskTable() {
+
+    let [openModal, setOpenModal] = useState (false);
+
   return (
     <Container className=" mt-8">
         <div className="flex justify-end w-full">
-            <Button className="mr-2" color="failure">Add Task</Button>
+            <Button onClick={() => setOpenModal(true)} className="mr-2" color="failure">Add Task</Button>
             <Button color="success">Clear Task</Button>
         </div>
 
-        <div className="py-2 my-6 rounded-sm border">
+        <div className="p-3  my-3 rounded-sm border dark:border-[#666]">
             <TaskTableHeader />
             <div className="overflow-x-auto mt-6">
                 <Table hoverable>
@@ -42,6 +47,7 @@ function TaskTable() {
                 </Table>
             </div>
         </div>
+        <ModalPopup onOpen={openModal} onClose={() => setOpenModal(false)}  />
     </Container>
   )
 }

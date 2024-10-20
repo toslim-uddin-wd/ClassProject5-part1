@@ -2,7 +2,7 @@
 
 function Footer() {
   return (
-    <p className=" text-center py-2">&copy; Toslim Uddin. All Right Reserved.</p>
+    <p className=" text-center dark:text-stone-300 py-2">&copy; Toslim Uddin. All Right Reserved.</p>
   )
 }
 
